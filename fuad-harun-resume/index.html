@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fu'ad Harun - Full-Stack Engineer Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --surface-color: #111827;
+            --primary-accent: #eab308; /* Premium Gold matching your flyer */
+            --secondary-accent: #38bdf8; /* Tech Cyan */
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #1f2937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        /* HEADER SECTION */
+        header {
+            padding: 50px 50px 30px;
+            border-bottom: 1px solid var(--border-color);
+            background: linear-gradient(135deg, #111827 0%, #0b0f19 100%);
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-accent), var(--primary-accent));
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        h2 {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.2rem;
+            color: var(--primary-accent);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .contact-info a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--secondary-accent);
+        }
+
+        /* MAIN CONTENT LAYOUT */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            padding: 40px 50px;
+        }
+
+        /* TYPOGRAPHY & SECTIONS */
+        .section-title {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary-accent);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* LEFT COLUMN: Skills & Education */
+        .sidebar {
+            border-right: 1px solid var(--border-color);
+            padding-right: 40px;
+        }
+
+        .skill-group {
+            margin-bottom: 25px;
+        }
+
+        .skill-group h3 {
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--secondary-accent);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .edu-item {
+            margin-bottom: 20px;
+        }
+
+        .edu-item h4 {
+            color: var(--text-main);
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        .edu-item .date {
+            font-size: 0.85rem;
+            color: var(--primary-accent);
+            margin-bottom: 8px;
+        }
+
+        /* RIGHT COLUMN: Experience & Projects */
+        .experience-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .experience-header h3 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+        }
+
+        .experience-header .date {
+            font-size: 0.9rem;
+            color: var(--primary-accent);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .company {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        ul.achievements {
+            list-style-type: none;
+        }
+
+        ul.achievements li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        ul.achievements li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-accent);
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* PRINT STYLES FOR PDF EXPORT */
+        @media print {
+            body {
+                background-color: var(--surface-color);
+            }
+            .container {
+                margin: 0;
+                border: none;
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .sidebar {
+                border-right: 1px solid #333;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Fu'ad Harun</h1>
+            <h2>&lt; Full-Stack Software Engineer /&gt;</h2>
+            <div class="contact-info">
+                <span>📍 Nasarawa / Abuja, Nigeria</span>
+                <span>✉️ <a href="mailto:www.fuadharun@gmail.com">www.fuadharun@gmail.com</a></span>
+                <span>📱 <a href="https://wa.link/q1qvtr">wa.link/q1qvtr</a></span>
+                <span>🌐 <a href="https://candydev404.github.io">candydev404.github.io</a></span>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- LEFT COLUMN -->
+            <div class="sidebar">
+                <section>
+                    <h2 class="section-title">Objective</h2>
+                    <p>Security-conscious Full-Stack Web Developer with hands-on expertise in building responsive, dynamic web applications and robust backend architectures. Passionate about defensive cybersecurity, ethical hacking principles, and writing clean, maintainable code that solves complex problems.</p>
+                </section>
+
+                <section>
+                    <h2 class="section-title">Tech Stack</h2>
+                    
+                    <div class="skill-group">
+                        <h3>Frontend</h3>
+                        <div class="tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">UI/UX</span>
+                            <span class="tag">Responsive Design</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Backend</h3>
+                        <div class="tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Security & DevOps</h3>
+                        <div class="tags">
+                            <span class="tag">Defensive Security</span>
+                            <span class="tag">Auth Logic</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">GitHub Pages</span>
+                            <span class="tag">cPanel</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="section-title">Education</h2>
+                    <div class="edu-item">
+                        <h4>Undergraduate Degree</h4>
+                        <div class="date">Present</div>
+                        <p style="color: var(--text-main); margin-bottom: 4px;">Nasarawa State University, Keffi (NSUK)</p>
+                        <p style="font-size: 0.85rem; margin-bottom: 0;">Group Leader for major academic web application project and technical defense report authorship.</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="main-content">
+                <section>
+                    <h2 class="section-title">Experience</h2>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3>Freelance Software Engineer</h3>
+                            <span class="date">2024 — Present</span>
+                        </div>
+                        <div class="company">Independent Consultant • Remote</div>
+                        <ul class="achievements">
+                            <li>Architect and deploy bespoke, high-performance web solutions for businesses, startups, and academic clients.</li>
+                            <li>Develop robust backend systems featuring custom administrative dashboards, secure user authentication, and dynamic status updates.</li>
+                            <li>Integrate third-party API services and engineer secure payment verification protocols, including fiat and crypto integrations.</li>
+                            <li>Perform rigorous code debugging, server deployment, and database connection vulnerability patching to ensure maximum system uptime.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="section-title">Key Projects</h2>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3>Campus Lost & Found Platform</h3>
+                            <span class="date">Full-Stack Architect</span>
+                        </div>
+                        <ul class="achievements">
+                            <li>Designed and deployed a comprehensive campus-based web platform utilizing PHP and MySQL to efficiently track and manage lost items.</li>
+                            <li>Engineered a full-scale administrative dashboard featuring dynamic status tracking, allowing admins to approve claims and automatically update global database views.</li>
+                            <li>Built secure registration and login portals to protect user data, restrict unauthorized system access, and mitigate injection vulnerabilities.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3>Developer Portfolio System</h3>
+                            <span class="date">Frontend Engineer</span>
+                        </div>
+                        <ul class="achievements">
+                            <li>Developed a high-performance, single-page web portfolio utilizing modern, dark-themed aesthetics and custom CSS Grid/Flexbox layouts.</li>
+                            <li>Managed seamless version control and live deployment pipelines directly via GitHub Pages for optimal load speeds.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
